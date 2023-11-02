@@ -76,12 +76,30 @@ require('bufferline').setup {
         },
         --color_icons = true | false, -- whether or not to add the filetype icon highlights
         color_icons = true,
+
+        -- 替代show_buffer_default_icon特性. 20231102
+        get_element_icon = function(element)
+          -- element consists of {filetype: string, path: string, extension: string, directory: string}
+          -- This can be used to change how bufferline fetches the icon
+          -- for an element e.g. a buffer or a tab.
+          -- e.g.
+          local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+          return icon, hl
+          ---- or
+          --local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}
+          --return custom_map[element.filetype]
+        end,
+
         --show_buffer_icons = true | false, -- disable filetype icons for buffers
         show_buffer_icons = true,
         --show_buffer_close_icons = true | false,
         show_buffer_close_icons = true,
+
+        -- 20231102 show_buffer_default_icon is deprecated
+        --This feature will be removed in bufferline version 4.0.0
         --show_buffer_default_icon = true | false, -- whether or not an unrecognised filetype should show a default icon
-        show_buffer_default_icon = true,
+        --show_buffer_default_icon = true, 
+
         --show_close_icon = true | false,
         show_close_icon = true,
         --show_tab_indicators = true | false,
