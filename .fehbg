@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+feh --no-fehbg --bg-scale '/home/fyf/wallpapers/large.png' 
+
+
+
