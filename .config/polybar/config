@@ -1,0 +1,1227 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+;全透明
+;background = #00000000
+;background-alt = #00000000
+
+;background = #cc222222
+;background-alt = #cc222222
+;background = #cc292c3e
+;background-alt = #cc292c3e 
+background = #cc101421
+background-alt = #cc101421
+;background = ${xrdb:color0:#222}
+;foreground = ${xrdb:color7:#222}
+
+foreground = #ccdfdfdf
+foreground-alt = #ccdfdfdf
+
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/bar1]
+monitor = ${env:MONITOR:DVI-D-0}
+bottom = false
+width = 100%
+height = 23
+;offset-x = 1%
+;offset-y = 1%
+radius = 7.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 3
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 2
+
+;font-0 = fixed:pixelsize=10;1
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+;font-2 = siji:pixelsize=10;1
+font-0 = Hack:Bold:pixelsize=10;1
+font-1 = Font Awesome 6 Free:Regular:pixelsize=10;1
+font-2 = Font Awesome 6 Free:Solid:pixelsize=10;1
+font-3 = Font Awesome 6 Brands:Regular:pixelsize=10;1
+font-4 = Font Awesome v4 Compatibility:Regular:pixelsize=10;1
+; mpd符号
+font-5 = Symbola:Regular:pixelsize=13;1
+;archlinux箭头图标字体 粗体
+font-6 = MesloLGS NF:Bold:pixelsize=13;1 
+; 中文字体
+font-7 = AR PL New Sung:Reguler:pixelsize=10;1 
+font-8 = AR PL New Sung ExtB:Reguler:pixelsize=10;1
+;font-9 = AR PL New Kai:Regular:pixelsize=12;1
+;font-10 = AR PL New Kai ExtB:Regular:pixelsize=12;1
+
+;modules-left = text bspwm i3
+;modules-center = mpd
+;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan network battery temperature date powermenu xkeyboard
+modules-left = text1 i3
+modules-center = mpd
+modules-right = temperature cpu memory
+;modules-right = cpu memory text1-1
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/bar2]
+monitor = ${env:MONITOR:DVI-D-0}
+bottom = true
+width = 100%
+height = 23
+;offset-x = 1%
+;offset-y = 1%
+radius = 7.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 3
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = Hack:Bold:pixelsize=10;1
+font-1 = Font Awesome 6 Free:Regular:pixelsize=11;1
+font-2 = Font Awesome 6 Free:Solid:pixelsize=11;1
+font-3 = Font Awesome 6 Brands:Regular:pixelsize=11;1
+font-4 = Font Awesome v4 Compatibility:Regular:pixelsize=10;1
+; 音量耳机图标
+font-5 = Symbola:Regular:pixelsize=12;1
+; archlinux箭头图标字体
+font-6 = MesloLGS NF:Bold:pixelsize=13;1 
+; 中文
+font-7 = AR PL New Sung:Reguler:pixelsize=10;1
+font-8 = AR PL New Sung ExtB:Reguler:pixelsize=10;1
+;font-9 = AR PL New Kai:Regular:pixelsize=12;1
+;font-10 = AR PL New Kai ExtB:Regular:pixelsize=12;1
+
+;modules-left = text bspwm i3
+;modules-center = mpd
+;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan network battery temperature date powermenu
+modules-left = text2 alsa network wlan
+modules-center = filesystem 
+modules-right = date
+
+;tray-position = right
+;tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/text1]
+type = custom/text
+;content =  
+content = "  "
+content-foreground = #00bfff
+;content-foreground = ${colors.foreground} 
+content-margin = 0  
+content-padding = 0 
+
+[module/text1-1]
+type = custom/text
+content = ""
+content-foreground = #00bfff
+;content-foreground = ${colors.foreground} 
+content-margin = 0  
+content-padding = 0 
+
+;[module/text2]
+;type = custom/text
+;content = "  "
+;content-foreground = #00f5ff
+;;content-foreground = #00bfff
+;;content-foreground = ${colors.foreground} 
+;content-margin = 0  
+;content-padding = 0 
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+;-------------------------------------------------------
+;type = internal/xkeyboard
+;blacklist-0 = num lock
+;
+;format-prefix = " "
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix-underline = ${colors.secondary}
+;
+;label-layout = %layout%
+;label-layout-underline = ${colors.secondary}
+;
+;label-indicator-padding = 2
+;label-indicator-margin = 1
+;label-indicator-background = ${colors.secondary}
+;label-indicator-underline = ${colors.secondary}
+;-------------------------------------------------------
+
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+;   %icon%
+;   %variant% (unreleased)
+; Default: %layout%
+label-layout = %name%
+label-layout-padding = 2
+label-layout-background = #bc99ed
+label-layout-foreground = #000
+
+; Available tokens:
+;   %name%
+; Default: %name%
+; @deprecated, use label-indicator-on
+label-indicator = %name%
+
+; layout-icon-[0-9]+ = layout;icon
+; Assign each layout an icon that will be available as %icon% token for the
+; <label-layout> tag. The part before ';' will try to match %layout% value.
+layout-icon-default = some-icon
+layout-icon-0 = ch;C
+layout-icon-1 = us;U
+
+; indicator-icon-[0-9]+ = indicator;off icon;on icon
+; Provides the content of the %icon% token in label-indicator-*
+indicator-icon-default = 
+indicator-icon-0 = caps lock;-CL;+CL
+indicator-icon-1 = scroll lock;;+SL
+indicator-icon-2 = num lock;-NL;+NL
+
+; Replaces label-indicator
+; Available tokens:
+;   %name%
+;   %icon%
+; Default: %name%
+label-indicator-on = +%name%
+; Available tokens:
+;   %name%
+;   %icon%
+; Default: (none)
+label-indicator-off = -%name%
+
+; Replaces label-indicator-* if for specific indicators
+; Available tokens:
+;   %name%
+;   %icon%
+label-indicator-on-capslock = 
+label-indicator-off-capslock = 
+label-indicator-on-numlock = 
+label-indicator-off-numlock = 
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+;mount-0 = /
+;mount-1 = /home
+;mount-2 = /var
+mount-0 = /
+mount-1 = /mnt
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 5
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 3
+
+; Available tags:
+;   <label-mounted> (default)
+;   <bar-free>
+;   <bar-used>
+;   <ramp-capacity>
+format-mounted = <label-mounted>
+
+; Available tags:
+;   <label-unmounted> (default)
+format-unmounted = <label-unmounted>
+
+; Available tokens:
+;   %mountpoint%
+;   %type%
+;   %fsname%
+;   %percentage_free%
+;   %percentage_used%
+;   %total%
+;   %free%
+;   %used%
+; Default: %mountpoint% %percentage_free%%
+;label-mounted = %mountpoint%: %percentage_free%% of %total%
+label-mounted =  %mountpoint%=%total% %percentage_used%%=%used%
+
+; Available tokens:
+;   %mountpoint%
+; Default: %mountpoint% is not mounted
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #55
+
+;[module/bspwm]
+;type = internal/bspwm
+;
+;label-focused = %index%
+;label-focused-background = ${colors.background-alt}
+;label-focused-underline= ${colors.primary}
+;label-focused-padding = 2
+;
+;label-occupied = %index%
+;label-occupied-padding = 2
+;
+;label-urgent = %index%!
+;label-urgent-background = ${colors.alert}
+;label-urgent-padding = 2
+;
+;label-empty = %index%
+;label-empty-foreground = ${colors.foreground-alt}
+;label-empty-padding = 2
+;
+; Separator in between workspaces
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+;enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+;enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+;wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+;reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+; ws-icon-[0-9]+ = <label>;<icon>
+; NOTE: The <label> needs to match the name of the i3 workspace
+; Neither <label> nor <icon> can contain a semicolon (;)
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 0;
+ws-icon-default = 
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = #cce60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %icon% %index%
+label-focused-foreground = #ffffff
+label-focused-background = #cc3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %icon% %index%
+label-unfocused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %icon% %index%
+label-visible-underline = #555555
+label-visible-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %icon% %index%
+label-urgent-foreground = #000000
+label-urgent-background = #ccbd2c40
+label-urgent-padding = 1
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 2
+;label-separator-foreground = #ffb52a
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+;password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+;interval = 2
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone> (deprecated)
+;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-prev> <icon-seekb> <toggle-stop> <toggle> <icon-seekf> <icon-next> <icon-single> <icon-repeat> <icon-random> <bar-progress> <label-time> <label-song>
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+
+; Available tags:
+;   <label-offline>
+; Default: ""
+format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album-artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song =  %artist% - %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline =  mpd is offline
+
+; Only applies if <icon-X> is used
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-single = 🔂
+;icon-consume = ✀
+
+;icon-play = 
+;icon-pause = 
+;icon-stop = 
+;icon-prev = 
+;icon-next = 
+;icon-seekb = 
+;icon-seekf = 
+;icon-random = 
+;icon-repeat = 
+;;icon-repeatone = 🔂
+;icon-single = 
+;icon-consume = 
+
+; Used to display the state of random/repeat/repeatone/single
+; Only applies if <icon-[random|repeat|repeatone|single]> is used
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 10
+;bar-progress-indicator = |
+;bar-progress-fill = -
+;bar-progress-empty = ─
+;bar-progress-indicator = 
+bar-progress-indicator = 
+bar-progress-fill = ❱
+bar-progress-empty = ❱ 
+;bar-progress-fill = ➤ 
+;bar-progress-empty = ➤ 
+;bar-progress-fill = ■
+;bar-progress-empty = ■
+;bar-progress-fill = ▪
+;bar-progress-empty = ▪
+bar-progress-fill-foreground = #00ffff
+bar-progress-empty-foreground = #ffffff
+
+;label-song-maxlen = 50
+;label-song-ellipsis = true
+
+;[module/xbacklight]
+;type = internal/xbacklight
+;
+;format = <label> <bar>
+;label = BL
+;
+;bar-width = 10
+;bar-indicator = |
+;bar-indicator-foreground = #fff
+;bar-indicator-font = 2
+;bar-fill = ─
+;bar-fill-font = 2
+;bar-fill-foreground = #9f78e1
+;bar-empty = ─
+;bar-empty-font = 2
+;bar-empty-foreground = ${colors.foreground-alt}
+;
+;[module/backlight-acpi]
+;inherit = module/xbacklight
+;type = internal/backlight
+;card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+;interval = 0.5
+
+format-prefix = " "
+format-prefix-foreground = #ff4500
+;format-prefix-foreground = #da70d6
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #f90000
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+;format = <label> <ramp-coreload>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label =  %percentage:2%%
+;label-foreground = #da70d6
+label-foreground = #ff4500
+
+;; Spacing between individual per-core ramps
+;ramp-coreload-spacing = 1
+;ramp-coreload-0 = ▁
+;ramp-coreload-1 = ▂
+;ramp-coreload-2 = ▃
+;ramp-coreload-3 = ▄
+;ramp-coreload-4 = ▅
+;ramp-coreload-5 = ▆
+;ramp-coreload-6 = ▇
+;ramp-coreload-7 = █
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+;interval = 3
+
+format-prefix = " "
+format-prefix-foreground = #00bfff
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #ffff00
+;label = %percentage_used%%
+
+; Available tags:
+;   <label> (default)
+;   <bar-used>
+;   <bar-free>
+;   <ramp-used>
+;   <ramp-free>
+;   <bar-swap-used>
+;   <bar-swap-free>
+;   <ramp-swap-used>
+;   <ramp-swap-free>
+format = <label>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+;label = %percentage_used% %gb_used%/%gb_total% [SWAP|8GB]: %percentage_swap_used%%
+label = %percentage_used%%
+label-foreground = #00bfff
+
+;; Only applies if <bar-used> is used
+;bar-used-indicator =
+;bar-used-width = 50
+;bar-used-foreground-0 = #55aa55
+;bar-used-foreground-1 = #557755
+;bar-used-foreground-2 = #f5a70a
+;bar-used-foreground-3 = #ff5555
+;bar-used-fill = ▐
+;bar-used-empty = ▐
+;bar-used-empty-foreground = #444444
+
+;; Only applies if <ramp-used> is used
+;ramp-used-0 = ▁
+;ramp-used-1 = ▂
+;ramp-used-2 = ▃
+;ramp-used-3 = ▄
+;ramp-used-4 = ▅
+;ramp-used-5 = ▆
+;ramp-used-6 = ▇
+;ramp-used-7 = █
+
+;; Only applies if <ramp-free> is used
+;ramp-free-0 = ▁
+;ramp-free-1 = ▂
+;ramp-free-2 = ▃
+;ramp-free-3 = ▄
+;ramp-free-4 = ▅
+;ramp-free-5 = ▆
+;ramp-free-6 = ▇
+;ramp-free-7 = █
+
+;[module/wlan]
+;type = internal/network
+;interface = net1
+;interval = 3.0
+;
+;format-connected = <ramp-signal> <label-connected>
+;format-connected-underline = #9f78e1
+;label-connected = %essid%
+;
+;format-disconnected =
+;;format-disconnected = <label-disconnected>
+;;format-disconnected-underline = ${self.format-connected-underline}
+;;label-disconnected = %ifname% disconnected
+;;label-disconnected-foreground = ${colors.foreground-alt}
+;
+;ramp-signal-0 = 
+;ramp-signal-1 = 
+;ramp-signal-2 = 
+;ramp-signal-3 = 
+;ramp-signal-4 = 
+;ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+;interval = 3.0
+interval = 1
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #cc222222
+;format-connected-underline = #00f5ff
+;format-connected-underline = #9f78e1
+;label-connected = " %ifname% %local_ip% %essid% %signal% "
+label-connected = "-%signal%dbm %ifname% %local_ip% %essid% 🡇%downspeed:9% 🡅%upspeed:9%"
+label-connected-foreground = #ffff00
+;label-connected-foreground = ${colors.foreground}
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = "  %ifname% disconnected "
+label-disconnected-foreground = #ffff00
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = " [1/5]"
+ramp-signal-1 = " [2/5]"
+ramp-signal-2 = " [3/5]"
+ramp-signal-3 = " [4/5]"
+ramp-signal-4 = " [5/5]"
+;ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = #ffff00
+
+[module/network]
+type = internal/network
+; Name of the network interface to display. You can get the names of the
+; interfaces on your machine with `ip link`
+; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
+interface = enp3s0
+
+; Seconds to sleep between updates
+; Default: 1
+;interval = 3.0
+interval = 1
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+;udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+;accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices like USB network adapters have 
+; an unknown state, even when they're running
+; Default: false
+;unknown-as-up = true
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+;format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected = %ifname% %local_ip%:🡇%downspeed:9%🡅%upspeed:9%
+label-connected-foreground = #7fff00
+
+; Default: (none)
+label-disconnected = "%ifname% not connected"
+label-disconnected-foreground = #7fff00
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+;ramp-signal-0 = 😱
+;ramp-signal-1 = 😠
+;ramp-signal-2 = 😒
+;ramp-signal-3 = 😊
+;ramp-signal-4 = 😃
+;ramp-signal-5 = 😈
+
+;; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+;; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+;format-connected-underline = #00ff00
+format-connected-prefix = ":"
+;format-connected-prefix = " "
+format-connected-prefix-foreground = #7fff00
+;format-connected-prefix-foreground = ${colors.foreground-alt}
+;
+;format-disconnected-underline = ${self.format-connected-underline}
+format-disconnected-prefix = ":"
+;label-disconnected = %ifname% disconnected
+format-disconnected-prefix-foreground = #7fff00
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %Y-%m-%d %A %B%
+
+; Optional time format
+time = %H:%M:%S
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+;date-alt = %A, %d %B %Y
+;time-alt = %H:%M:%S
+date-alt = %Y-%m-%d %A %B%
+time-alt = %H:%M:%S
+
+; Available tags:
+;   <label> (default)
+format = <label>
+;format-background = #55ff3399
+;format-foreground = #fff
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date%  %time%
+label-font = 1
+;label-foreground = #9A32DB
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #0a6cf5
+
+;[module/pulseaudio]
+;type = internal/pulseaudio
+;
+;format-volume = <label-volume> <bar-volume>
+;label-volume = VOL %percentage%%
+;label-volume-foreground = ${root.foreground}
+;
+;label-muted = 🔇 muted
+;label-muted-foreground = #666
+;
+;bar-volume-width = 10
+;bar-volume-foreground-0 = #55aa55
+;bar-volume-foreground-1 = #55aa55
+;bar-volume-foreground-2 = #55aa55
+;bar-volume-foreground-3 = #55aa55
+;bar-volume-foreground-4 = #55aa55
+;bar-volume-foreground-5 = #f5a70a
+;bar-volume-foreground-6 = #ff5555
+;bar-volume-gradient = false
+;bar-volume-indicator = |
+;bar-volume-indicator-font = 2
+;bar-volume-fill = ─
+;bar-volume-fill-font = 2
+;bar-volume-empty = ─
+;bar-volume-empty-font = 2
+;bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/alsa]
+type = internal/alsa
+
+; Soundcard to be used
+; Usually in the format hw:# where # is the card number
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+;speaker-soundcard = default
+headphone-soundcard = default
+
+; Name of the master, speaker and headphone mixers
+; Use the following command to list available mixer controls:
+; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
+; If master, speaker or headphone-soundcard isn't the default, 
+; use `amixer -c # scontrols` instead where # is the number 
+; of the master, speaker or headphone soundcard respectively
+;
+; Default: Master
+master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Default: none
+;speaker-mixer = Speaker
+; Default: none
+;headphone-mixer = Headphone
+
+; NOTE: This is required if headphone_mixer is defined
+; Use the following command to list available device controls
+; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
+; You may also need to use `amixer -c # controls` as above for the mixer names
+; Default: none
+;headphone-id = 9
+
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+mapped = false
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-volume = <ramp-volume> <label-volume>
+format-volume = <label-volume> <bar-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  muted
+label-muted-foreground = #66
+
+;; Only applies if <ramp-volume> is used
+;ramp-volume-0 = 🔈
+;ramp-volume-1 = 🔉
+;ramp-volume-2 = 🔊
+
+; If defined, it will replace <ramp-volume> when
+; headphones are plugged in to `headphone_control_numid`
+; If undefined, <ramp-volume> will be used for both
+; Only applies if <ramp-volume> is used
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+
+;label-volume = " "
+label-volume = "🎧"
+;label-volume-foreground = #00f5ff
+label-volume-foreground = ${root.foreground}
+
+;format-muted-prefix = ""
+format-muted-foreground = ${colors.foreground-alt}
+;label-muted = sound muted
+
+bar-volume-width = 16
+;bar-volume-foreground-0 = #55aa55
+;bar-volume-foreground-1 = #55aa55
+;bar-volume-foreground-2 = #55aa55
+;bar-volume-foreground-3 = #55aa55
+;bar-volume-foreground-4 = #55aa55
+;bar-volume-foreground-5 = #f5a70a
+;bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = #00f5ff
+bar-volume-foreground-1 = #00f5ff
+bar-volume-foreground-2 = #00f5ff
+bar-volume-foreground-3 = #f5a70a
+bar-volume-foreground-4 = #f5a70a
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+;bar-volume-indicator = |
+bar-volume-indicator = 
+bar-volume-indicator-font = 1
+;bar-volume-fill = ─
+;bar-volume-fill = ➤
+;bar-volume-fill = ❯
+bar-volume-fill = ❱
+bar-volume-fill-font = 1
+;bar-volume-empty = ─
+;bar-volume-empty = ➤
+bar-volume-empty = ❱
+bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+;[module/battery]
+;type = internal/battery
+;battery = BAT0
+;adapter = ADP1
+;full-at = 98
+;
+;format-charging = <animation-charging> <label-charging>
+;format-charging-underline = #ffb52a
+;
+;format-discharging = <animation-discharging> <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
+;
+;format-full-prefix = " "
+;format-full-prefix-foreground = ${colors.foreground-alt}
+;format-full-underline = ${self.format-charging-underline}
+;
+;ramp-capacity-0 = 
+;ramp-capacity-1 = 
+;ramp-capacity-2 = 
+;ramp-capacity-foreground = ${colors.foreground-alt}
+;
+;animation-charging-0 = 
+;animation-charging-1 = 
+;animation-charging-2 = 
+;animation-charging-foreground = ${colors.foreground-alt}
+;animation-charging-framerate = 750
+;
+;animation-discharging-0 = 
+;animation-discharging-1 = 
+;animation-discharging-2 = 
+;animation-discharging-foreground = ${colors.foreground-alt}
+;animation-discharging-framerate = 750
+
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+;; Thermal zone to use
+;; To list all the zone types, run 
+;; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+;; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+; temp1_input为package温度
+
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 80
+
+; Whether or not to show units next to the temperature tokens (°C, °F)
+; Default: true
+units = true
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+format = <ramp> <label> 
+
+; Available tags:
+;   <label-warn> (default)
+;   <ramp>
+format-warn = <ramp> <label-warn>
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label = %temperature-c%  
+label-foreground = #ff4500
+;label-background = #ccff4500
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label-warn = %temperature-c%
+label-warn-foreground = #ff4500
+
+; Requires the <ramp> tag
+; The icon selection will range from `base-temperature` to `warn-temperature`,
+; temperatures at and above `warn-temperature` will use the last icon
+; and temperatures at and below `base-temperature` will use `ramp-0`. 
+; All other icons are distributed evenly between the two temperatures.
+;;ramp-0 = 
+;;ramp-0 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+
+ramp-foreground = #ff4500
+;ramp-foreground = ${colors.foreground-alt}
+;
+;;这两句没测试过
+;format-underline = #f50a4d
+;format-warn-underline = ${self.format-underline}
+
+
+;[module/powermenu]
+;type = custom/menu
+;
+;expand-right = true
+;
+;format-spacing = 1
+;
+;label-open = 
+;label-open-foreground = ${colors.secondary}
+;label-close =  cancel
+;label-close-foreground = ${colors.secondary}
+;label-separator = |
+;label-separator-foreground = ${colors.foreground-alt}
+;
+;menu-0-0 = reboot
+;menu-0-0-exec = menu-open-1
+;menu-0-1 = power off
+;menu-0-1-exec = menu-open-2
+;
+;menu-1-0 = cancel
+;menu-1-0-exec = menu-open-0
+;menu-1-1 = reboot
+;menu-1-1-exec = sudo reboot
+;
+;menu-2-0 = power off
+;menu-2-0-exec = sudo poweroff
+;menu-2-1 = cancel
+;menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
