@@ -1,0 +1,196 @@
+备注：从github找回的20211222 note_book.txt版本,我是真没印象什么时候被我删的...
+文件原内容修改部分我是肯定不可能记住了,参考的时候只能在甄别了...
+缺少的部分（印象流...）：systemctl,蓝牙(bluz:bluetoothctl),无线网卡(iwd),pipewire(linux声音大一统...) 
+可通过sudo pacman -Q | grep 安装包 验证,还有systemctl list-units查看已安装的服务验证.
+暂时没心情搞这些...就这样吧...
+备注更新日期:20231101
+
+alacritty
+visual mode: ctrl-shift-space -> v -> 方向键选择 -> y复制 -> i insert模式
+-> 粘贴: ctrl-shift-v (可跨terminal粘贴)
+
+
+----------------------- 20211222 --------------------------------
+ 
+sudo pacman -S 同步(更新)包
+
+sudo pacman -Sc 清理未安装的包文件
+sudo pacman -Scc 清理所有缓存文件
+
+sudo pacman -Sy 从服务器下载更新包数据库(更新/同步包列表)
+sudo pacman -Syy 从服务器下载更新包数据库，即使已经是最新的也会更新，强制更新(强制更新/同步包列表)
+
+sudo pacman -Syu 更新包列表，然后升级包
+
+i3wm选i3-gaps
+fonts:
+ 1. ttf-symbola (polybar:mpd)
+ 2. MesloLGS NF - powerlevel10k (github wiki下载) (arch标志)
+ 3. opendesktop-fonts 新宋字体
+ 4. noto-fonts-emoji
+ 5. ttf-hack
+ 6. ttf-font-awesome
+ 7. otf-font-awesome 已删除
+ 8. ttf-monaco 已删除
+ 9. ttf-font-awesome
+10. ttf-baekmuk 韩文
+11. ProFont IIx Nerd Font Complete.ttf (github nerd-font download)
+12. ProFont IIx Nerd Font Complete Mono.ttf (github nerd-font download)
+
+rofi 替代 dmenu dynamic menu 活力菜单
+
+polybar powerlevel10k archlinux仓库安装
+polybar bar1 终端启动polybar,bar1为bar名
+p10k configure
+
+picom 窗口特效(透明)管理 
+
+feh 图片管理/i3wm壁纸设置
+gpicview lxde桌面图片预览软件
+mpv 视频播放器
+w3m 命令行网页(ranger图片预览)
+ranger(命令行文件管理器)
+pcmanfm(图形文件管理器)
+lxappearance(主题/图标等设置) lxde桌面的一部分
+arc-gtk-theme
+numix-circle图标 aur
+ripgrep替代grep的工具(fzf.vim Rg命令会用到)
+
+xfce4-terminal 好用不折腾 rxvt-unicode折腾了几天崩溃了！！！
+
+rofi(替代dmenu dynamic menu)
+
+xrandr 
+x resize and rotate
+X窗口系统的扩展管理工具
+可查看显示器接口类型
+rotate旋转
+调节屏幕亮度：xrandr --output DVI-D-0 --brightness 0.7
+
+i3lock
+锁屏
+输入密码 回车
+解锁
+
+alsamixer 无法自动选择声卡的问题:
+cat /proc/asound/cards
+然后在.asoundrc设置,想要选择的声卡编号
+
+git免密码设置
+git config --global credential.helper store
+github个人访问令牌(fyf token)：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
+
+irc:
+weechat client
+/server add freenode6665 chat.freenode.net/6665
+/connect server <name>
+/msg NickServ identify 123456_
+nickname:fyf email:210973721@qq.com
+
+weechat command:
+/buffer 1 切换缓冲区1(窗口1/channel频道)
+/close 关闭缓冲区(窗口/channel频道)
+/part 离开缓冲区(窗口/channel频道)
+
+
+pdf软件: xreader
+
+the polyphonic spree wait 
+
+
+ip link set [eth] up/down
+sudo systemctl start/enable dhcpcd 
+
+mpd 后端 ncmpcpp 前端
+mpd:
+单用户配置,创建相应文件及文件夹
+(重点：单用户配置,别做其他无用功)
+mpd启动
+ncmpcpp配置三个变量
+localhost连接成功！！！
+进入ncmpcpp，按下2或4，选择文件（文件夹），按下a，添加到playlist即可
+ncmpcpp shortcut:
+1 = Main Screen
+2 = Browse File Music on Directory
+3 = Search Engine
+4 = Media Library
+5 = Playlist Editor
+6 = Tag Editor
+7 = Outpu Interfaces
+8 = Music Visualizer
+l = to download the lyrics (online)
+r = Repeat Mode
+y = Single Mode
+q = quit
+s = stop
+w = search
+p = play/pause
+yank 猛拉 猛拽
+
+stackoverflow账号: 谷歌邮箱注册,记得稍后写入xxx.docx
+
+安装了摄像头后alsa-utils默认声卡变摄像头的问题解决:
+  创建文件~/.asoundrc 用户配置文件
+  aplay -l查看声卡设备
+  在配置文件中添加(根据实际情况调整):
+  defaults.pcm.card 2
+  defaults.ctl.card 2
+  defaults.pcm.device 0
+
+pk10主题升级:
+  cd powerlevel10k
+  git pull
+
+oh-my-zsh github wiki有国内源???
+本机的ohmyzsh，年代太久远，忘记了，应该是github源，修改了hosts才安装的应该。。。不能百分之百确定
+
+mariadb in archlinux:
+  sudo systemctl start/stop/status mariadb.service
+
+fcitx5-im包组,包含配置工具:fcitx5-configtool
+wiki设置im环境变量
+输入法引擎：fcitx5-chinese-addons 
+主题：fcitx5-nord，fcitx5-material-color。配置工具:addons-UI-Classic User Interface->configure->theme
+fcitx5输入特殊字符：Ctrl + Alt + Shift + U
+
+mpd:
+Sep 01 10:48 : exception: Decoder plugin 'wildmidi' is unavailable: configuration file does not exist: /etc/timidity/timidity.cfg
+
+nodejs
+npm (node package manager)
+npm install package
+npm uninstall package
+npm list
+
+python-pip包 ==> pip3
+
+coc.nvim插件安装总结：
+archlinux安装clangd的问题解决
+vim-plug vim插件管理器 添加coc.nvim这个vim插件
+PlugInstall 
+CocInstall coc.nvim插件/扩展    CocUninstall 插件 CocList extensions
+.vimrc文件中加入 let g:coc_global_extensions = ['coc-clangd', 'coc-pyright', 'coc-pairs'] 设置使用插件
+加入代码后打开vim,如果没有安装的插件会自动安装
+coc.nvim中需要clangd的问题已解决(archlinux安装clangd没有官方包的问题),打开一个C文件,输入命令 :CocCommand clangd.install
+ <S-Tab> shift+tab 想在弹出补全的字符后面输入tab,用shift+tab组合键  
+
+fzf：Esc退出
+fzf.vim插件:
+vim命令Files 路径
+
+vim终端命令：botright terminal ++rows=15				
+bottom right 终端位置,底部,然后向右扩展
+
+vim命令：
+f f字符 向右寻找特定字符 3f字符 向右寻找第3个字符	front 头
+T T字符 向左寻找特定字符(的右边一个字符) 3T字符 同理	tail 尾
+Ctrl + f 向前翻页(向下为前forward); Ctrl + b 向后翻页(向上为后back)
+ctrl+v (visual block模式)	j向下选择多行首字符,shift+i,输入插入字符
+ctrl+v (visual block模式)	j向下选择多行要删除字符(包括空白字符),直接del删除
+
+tmux 终端多路复用器 还没搞清楚有什么用...
+ctrl+b (binding) 唤起tmux快捷键，才能在tmux中输入命令
+
+
+
+
