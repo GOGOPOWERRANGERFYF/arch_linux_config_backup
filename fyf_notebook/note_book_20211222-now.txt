@@ -5,10 +5,14 @@
 暂时没心情搞这些...就这样吧...
 备注更新日期:20231101
 
+通过arch_linux_config_backup上传archlinux需要备份的文件到github
+
 alacritty
 visual mode: ctrl-shift-space -> v -> 方向键选择 -> y复制 -> i insert模式
 -> 粘贴: ctrl-shift-v (可跨terminal粘贴)
 
+备忘录:
+    执行alsamixer后,win+shift+r重启polybar后,polybar的alsa模块才能加载,archlinux的库中有polybar的包.
 
 ----------------------- 20211222 --------------------------------
  
