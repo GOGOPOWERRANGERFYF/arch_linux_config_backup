@@ -14,6 +14,25 @@ visual mode: ctrl-shift-space -> v -> 方向键选择 -> y复制 -> i insert模�
 备忘录:
     执行alsamixer后,win+shift+r重启polybar后,polybar的alsa模块才能加载,archlinux的库中有polybar的包.
 
+  字体:
+    noto-fonts-cjk (20231103安装)
+
+蓝牙:
+  systemctl start bluetooth
+  systemctl status bluetooth
+  bluetoothctl输入root密码 或者sudo bluetoothctl
+  进入bluetoothctl, help查看帮助, agent on, scan on, list, devices, pair (mac address), connect/disconnect等...
+
+  重新连接蓝牙步骤:
+    scan on
+    remove (mac address) 之前添加过但连接出错的蓝牙设备
+    trust (mac address)
+    pair (mac address)
+    连接connect (mac address) / 断开disconnect
+
+ncmpcpp快捷键:
+  方向键: 左右调节音量大小.
+
 ----------------------- 20211222 --------------------------------
  
 sudo pacman -S 同步(更新)包
