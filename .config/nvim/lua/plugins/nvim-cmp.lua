@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp", -- Autocompletion plugin
-  event = "InsertEnter",
+  --event = "InsertEnter", -- 不知道啥意思,设置里会有自动补全不生效的问题,注释掉了...
   dependencies = {
     --'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
     'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp

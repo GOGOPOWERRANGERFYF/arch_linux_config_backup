@@ -1,8 +1,8 @@
 return {
   "ellisonleao/gruvbox.nvim",
   priority = 1000,
+  opt = {},
   config = function ()
-    vim.cmd([[colorscheme gruvbox]])
     -- setup must be called before loading the colorscheme
     -- Default options:
     require("gruvbox").setup({
@@ -25,7 +25,8 @@ return {
       palette_overrides = {},
       overrides = {},
       dim_inactive = false,
-      transparent_mode = false,
+      transparent_mode = true,
     })
+    vim.cmd([[colorscheme gruvbox]])
   end,
 }

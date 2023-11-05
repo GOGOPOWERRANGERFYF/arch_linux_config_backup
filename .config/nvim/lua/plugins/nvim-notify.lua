@@ -12,7 +12,8 @@ return {
       -- "fade", "slide", "fade_in_slide_out", "static"
       stages = "fade",
       render = "default",
-      background_colour = "Normal",
+      --background_colour = "Normal",
+      background_colour = "#ffffff", -- gruvbox设置背景透明要修改该属性
     })
 
     -- keymap -- noremap 不递归映射
