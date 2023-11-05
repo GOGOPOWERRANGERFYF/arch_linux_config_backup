@@ -1,8 +1,8 @@
------ + 目前使用Packer.nvim插件管理器 -- 要被lazy.nvim插件替换
---require('plugins') -- 加载Packer.nvim配置模块(packer已淘汰,packer作者自己都用lazy了...)
--- nvim notify插件设置成nvim默认notify功能 要被替换掉的基于packer的管理插件配置
---vim.notify = require("plugins/nvim-notify")
--- 以上为将来要删除的配置代码.
+--- + 目前使用Packer.nvim插件管理器 --
+require('plugins') -- 加载Packer.nvim配置模块
+
+-- nvim notify插件设置成nvim默认notify功能
+vim.notify = require("notify")
 
           -- + nvim配置(lua版本) --
 -- vim.o vim.opt (全局配置option)
@@ -71,47 +71,26 @@ vim.o.expandtab = true
 -- 处理程序的缩进结构
 vim.o.cindent = true
 
--- lazy.nvim 安装 (packer已清除,开始安装lazy.nvim,已安装2023110312:42)
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
--- lazy.nvim配置
---require("lazy").setup(plugins, opts)
-require("lazy").setup({{import = "plugins"}})
 
----- colorscheme setup 已移到gruvbox配置文件
----- gruvbox.nvim
---vim.cmd("colorscheme gruvbox")
-
-
----- == + 加载lua配置模块 == -- Packer已经停止维护了,这些基于packer的配置也要逐步被替代.
-----require('alpha-nvim-config')
---require('dashboard-nvim-config')
---require('colorscheme-gruvbox-config')
-----require('colorscheme-nightfox-config')
-----require('colorscheme-nvim-config')
---require('lsp-nvim-lspconfig-config')
---require('lsp-nvim-cmp-config')
---require('nvim-treesitter-config')
---require('nvim-tree-config')
---require('nvim-telescope-config')
---require('lualine-nvim-config')
---require('symbols-outline-config')
---require('bufferline-nvim-config')
-----require('barbar-nvim-config')
---require('toggleterm-config')
---require('nvim-autopairs-config')
---require('nvim-notify-config')
---require('lsp-mason-config')
+-- == + 加载lua配置模块 == --
+--require('alpha-nvim-config')
+require('dashboard-nvim-config')
+require('colorscheme-gruvbox-config')
+--require('colorscheme-nightfox-config')
+--require('colorscheme-nvim-config')
+require('lsp-nvim-lspconfig-config')
+require('lsp-nvim-cmp-config')
+require('nvim-treesitter-config')
+require('nvim-tree-config')
+require('nvim-telescope-config')
+require('lualine-nvim-config')
+require('symbols-outline-config')
+require('bufferline-nvim-config')
+--require('barbar-nvim-config')
+require('toggleterm-config')
+require('nvim-autopairs-config')
+require('nvim-notify-config')
+require('lsp-mason-config')
 
 --- + 备忘录 ---
 -- archlinux版本
