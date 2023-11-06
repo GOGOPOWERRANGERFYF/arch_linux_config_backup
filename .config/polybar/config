@@ -65,7 +65,7 @@ module-margin-right = 2
 ;font-0 = fixed:pixelsize=10;1
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
-font-0 = Hack:Bold:pixelsize=10;1
+font-0 = Hack Nerd Font:Bold:pixelsize=10;1
 font-1 = Font Awesome 6 Free:Regular:pixelsize=10;1
 font-2 = Font Awesome 6 Free:Solid:pixelsize=10;1
 font-3 = Font Awesome 6 Brands:Regular:pixelsize=10;1
@@ -73,7 +73,7 @@ font-4 = Font Awesome v4 Compatibility:Regular:pixelsize=10;1
 ; mpd符号
 font-5 = Symbola:Regular:pixelsize=13;1
 ;archlinux箭头图标字体 粗体
-font-6 = MesloLGS NF:Bold:pixelsize=13;1 
+;font-6 = MesloLGS NF:Bold:pixelsize=13;1 (已经删除了,用Hack Nerd Font就好了)
 ; 中文字体
 font-7 = AR PL New Sung:Reguler:pixelsize=10;1 
 font-8 = AR PL New Sung ExtB:Reguler:pixelsize=10;1
@@ -132,7 +132,7 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = Hack:Bold:pixelsize=10;1
+font-0 = Hack Nerd Font:Bold:pixelsize=10;1
 font-1 = Font Awesome 6 Free:Regular:pixelsize=11;1
 font-2 = Font Awesome 6 Free:Solid:pixelsize=11;1
 font-3 = Font Awesome 6 Brands:Regular:pixelsize=11;1
@@ -140,7 +140,7 @@ font-4 = Font Awesome v4 Compatibility:Regular:pixelsize=10;1
 ; 音量耳机图标
 font-5 = Symbola:Regular:pixelsize=12;1
 ; archlinux箭头图标字体
-font-6 = MesloLGS NF:Bold:pixelsize=13;1 
+;font-6 = MesloLGS NF:Bold:pixelsize=13;1 (已删除,用Hack Nerd Font)
 ; 中文
 font-7 = AR PL New Sung:Reguler:pixelsize=10;1
 font-8 = AR PL New Sung ExtB:Reguler:pixelsize=10;1
@@ -174,7 +174,6 @@ cursor-scroll = ns-resize
 
 [module/text1]
 type = custom/text
-;content =  
 content = "  "
 content-foreground = #00bfff
 ;content-foreground = ${colors.foreground} 
@@ -198,13 +197,11 @@ content-padding = 0
 ;content-margin = 0  
 ;content-padding = 0 
 
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
 
 [module/xkeyboard]
-;-------------------------------------------------------
 ;type = internal/xkeyboard
 ;blacklist-0 = num lock
 ;
@@ -219,7 +216,6 @@ label = %title:0:30:...%
 ;label-indicator-margin = 1
 ;label-indicator-background = ${colors.secondary}
 ;label-indicator-underline = ${colors.secondary}
-;-------------------------------------------------------
 
 type = internal/xkeyboard
 
@@ -332,14 +328,15 @@ format-unmounted = <label-unmounted>
 ;   %used%
 ; Default: %mountpoint% %percentage_free%%
 ;label-mounted = %mountpoint%: %percentage_free%% of %total%
-label-mounted =  %mountpoint%=%total% %percentage_used%%=%used%
+label-mounted =  %mountpoint% %used%:%total%  %percentage_used%%
 
 ; Available tokens:
 ;   %mountpoint%
 ; Default: %mountpoint% is not mounted
-label-unmounted = %mountpoint%: not mounted
+label-unmounted = %mountpoint%: umounted
 label-unmounted-foreground = #55
 
+;
 ;[module/bspwm]
 ;type = internal/bspwm
 ;
@@ -408,18 +405,19 @@ fuzzy-match = true
 ; ws-icon-[0-9]+ = <label>;<icon>
 ; NOTE: The <label> needs to match the name of the i3 workspace
 ; Neither <label> nor <icon> can contain a semicolon (;)
+ws-icon-9 = 0;
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;
 ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 0;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
 ws-icon-default = 
 ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+;ws-icon-9 = 10;
 ; you must also define a ws-icon-5.
 ; NOTE: Icon will be available as the %icon% token inside label-*
 
@@ -875,13 +873,13 @@ animation-packetloss-1-foreground = #000000
 animation-packetloss-framerate = 500
 
 ;format-connected-underline = #00ff00
-format-connected-prefix = ":"
+format-connected-prefix = " "
 ;format-connected-prefix = " "
 format-connected-prefix-foreground = #7fff00
 ;format-connected-prefix-foreground = ${colors.foreground-alt}
 ;
 ;format-disconnected-underline = ${self.format-connected-underline}
-format-disconnected-prefix = ":"
+format-disconnected-prefix = " "
 ;label-disconnected = %ifname% disconnected
 format-disconnected-prefix-foreground = #7fff00
 ;label-disconnected-foreground = ${colors.foreground-alt}
@@ -1012,7 +1010,8 @@ format-muted = <label-muted>
 
 ; Available tokens:
 ;   %percentage% (default)
-label-muted =  muted
+;label-muted =  muted
+label-muted = "   "
 label-muted-foreground = #66
 
 ;; Only applies if <ramp-volume> is used
@@ -1029,7 +1028,7 @@ ramp-headphones-1 = 
 
 
 ;label-volume = " "
-label-volume = "🎧"
+label-volume = " 🎧  "
 ;label-volume-foreground = #00f5ff
 label-volume-foreground = ${root.foreground}
 
@@ -1120,6 +1119,7 @@ thermal-zone = 0
 ; to find path to desired file
 ; Default reverts to thermal zone setting
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+;
 ; temp1_input为package温度
 
 ; Base temperature for where to start the ramp (in degrees celsius)
@@ -1225,3 +1225,7 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+;---------------
+; my note
+;   
